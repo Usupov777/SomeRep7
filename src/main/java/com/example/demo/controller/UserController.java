@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.User;
-import com.example.demo.model.UserForm;
+import com.example.demo.model.UserDto;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,13 +33,13 @@ public class UserController {
     }
     @GetMapping("/addUser")
     public String showUserAddPage(Model model){
-        UserForm userForm = new UserForm();
+        UserDto userForm = new UserDto();
         model.addAttribute(userForm);
         return "addUser";
     }
     @PostMapping("/addUser")
     public String saveUser(Model model,
-                           @ModelAttribute("userForm") UserForm userFormFromModel){
+                           @ModelAttribute("userForm") UserDto userFormFromModel){
         String name = userFormFromModel.getName();
         String surname = userFormFromModel.getSurname();
         int age = userFormFromModel.getAge();

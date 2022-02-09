@@ -1,6 +1,9 @@
 package com.example.demo.model;
 
-public class UserForm {
+import lombok.Data;
+
+@Data
+public class UserDto {
     private String name;
     private String surname;
     private int age;
